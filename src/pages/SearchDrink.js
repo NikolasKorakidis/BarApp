@@ -3,7 +3,7 @@ import "../App.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function ListCheck() {
+export default function SearchDrink() {
   const params = useParams();
   const [item, set_item] = useState([]);
   useEffect(() => {
@@ -12,7 +12,7 @@ function ListCheck() {
 
   const fetchItem = async () => {
     const data = await axios.get(
-      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${params.check}`
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s${params.check}`
     );
     set_item(data.data);
   };
@@ -39,5 +39,3 @@ function ListCheck() {
     </div>
   );
 }
-
-export default ListCheck;

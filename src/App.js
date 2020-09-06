@@ -6,6 +6,8 @@ import List from "./pages/List";
 import Main from "./pages/Main";
 import Search from "./pages/Search";
 import ListCheck from "./pages/ListCheck";
+import SearchDrink from "./pages/SearchDrink";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/about" component={About} />
+          <Route path="/search/:drink" component={SearchDrink} />
           <Route path="/search" component={Search} />
           <Route path="/list/:check" component={ListCheck} />
           <Route path="/list" component={List} />
