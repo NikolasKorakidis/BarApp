@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ListCheck() {
   const params = useParams();
@@ -23,13 +24,14 @@ function ListCheck() {
     filterItems = item.drinks.map((drink) => {
       return (
         <div key={drink.idDrink} className="checked-drinks">
-          {drink.strDrink}
+          <Link to={`/search/${drink.strDrink}`}>{drink.strDrink}</Link>
           <img alt="bars" src={drink.strDrinkThumb}></img>
         </div>
       );
     });
   } else {
-    filterItems = "loading...";
+    filterItems =
+      "Loading... If this is taking too long refresh your page, category might not exist anymore!";
   }
 
   return (
