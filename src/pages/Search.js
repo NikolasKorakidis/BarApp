@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function SearchCocktail() {
   const [searchCocktail, set_searchCocktail] = useState("");
@@ -28,7 +29,9 @@ export default function SearchCocktail() {
     }
     result = settingStatus.data.map((drink) => (
       <div key={drink.idDrink}>
-        <h2>{drink.strDrink}</h2>
+        <Link to={`/search/${drink.strDrink}`}>
+          <h2>{drink.strDrink}</h2>
+        </Link>
         <img alt="bars" className="imageResult" src={drink.strDrinkThumb}></img>
         <p>{drink.strInstructions}</p>
       </div>
