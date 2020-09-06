@@ -18,9 +18,11 @@ function List() {
   };
 
   const listOfCocktails = list.map((listItem) => {
+    const categoryNoSpace = listItem.strCategory;
+    const encodeCategory = encodeURIComponent(categoryNoSpace);
     return (
       <div className="list-items" key={listItem.strCategory}>
-        <Link to={`/list/${listItem.strCategory}`}>{listItem.strCategory}</Link>
+        <Link to={`/list/${encodeCategory}`}>{listItem.strCategory}</Link>
       </div>
     );
   });
